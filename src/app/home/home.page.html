@@ -1,20 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Tarefas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="selectedSegment">
+    <ion-segment-button value="all">
+      <ion-label>Todas</ion-label>
+    </ion-segment-button>
+  <ion-segment-button value="complete">
+    <ion-label>Completas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="incomplete">
+      <ion-label>Incompletas</ion-label>
+      </ion-segment-button>
+  </ion-segment>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-toolbar color="light">
+    <ion-input [(ngModel)]="newTaskName" type="text" placeholder="Nova Tarefa"></ion-input>
+    <ion-buttons slot="end">
+        <ion-button (click)="addTask()">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>  
+
+  <ion-progress-bar [value]="percent"></ion-progress-bar>
+
+  <ion-list>
+    <ion-item *ngFor="let task of filteredTasks">
+      <ion-checkbox slot="start" [(ngModel)]="task.completed" (ionChange)="calculatePercent()"></ion-checkbox>
+      <ion-label>{{task.name}}</ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="remove(task)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
