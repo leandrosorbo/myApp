@@ -1,20 +1,54 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Meu App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h1 [class.ion-text-uppercase]="grade > 6" [class.ion-text-center]="list.length > 2">A sua nota é: {{grade}} </h1>
+  <ion-input [(ngModel)]="currentColor"></ion-input>
+  <p [style.background]="currentColor" [style.color]="grade > 5 ? 'violet' : 'white'">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt dolore tempora qui possimus, animi libero veritatis error perspiciatis dolores molestiae? Quos, blanditiis. Recusandae culpa tenetur ab aspernatur error dolorum quo!</p>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card *ngIf="grade > 6; else reprovado" color="success">
+    <ion-card-content>
+      <p>
+        Você está aprovado!
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #reprovado>
+    <ion-card color="danger">
+      <ion-card-content>
+        <p>
+          Você precisa fazer a substitutiva!
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
+  <ion-button (click)="adicionarPessoa()">Add Pessoa</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of list">{{item}} </ion-item>
+  </ion-list>
+  <ion-button (click)="grade = grade + 1">Aumentar nota</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of list1">
+      
+      <ion-label [ngSwitch]="item">
+        <span *ngSwitchCase="'preparing'">Preparando</span>
+        <span *ngSwitchCase="'onRoute'">A caminho</span>
+        <span *ngSwitchCase="'delivered'">Entregue</span>
+        <span *ngSwitchCase="'finished'">Finalizado</span>
+        <span *ngSwitchDefault>WTF????</span>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+ 
+
 </ion-content>
