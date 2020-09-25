@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,26 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public mensagem = '';
+  
+
+  constructor(private alertController: AlertController) {  }
+
+
+  public async showAlert(){
+    this.alertController.create({
+      header: "Promises são demais!",
+      buttons: [
+        {
+          text: "Não!",
+          handler: () => { this.mensagem = "Você é um fracassado!! :("; }
+          },
+        {
+          text: "Sim!",
+          handler: () => { this.mensagem = "Você é demais!!"; }
+          }        
+      ]
+    }).then(a => a.present());
+  }
 
 }
