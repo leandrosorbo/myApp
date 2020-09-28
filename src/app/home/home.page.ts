@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
-
+  public currentValue = 0;
+  
+  public increment() {
+    this.currentValue++;
+    
+  }
 }
