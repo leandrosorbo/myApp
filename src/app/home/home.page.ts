@@ -7,6 +7,32 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public currentValue = 0;
+  public maxValue = 0;
+  public selectedCash = 0;
+
+  public paymentMethod = "debit";
+
+  public jonSnow = false;
+
+  public increment() {
+    this.currentValue += this.selectedCash;
+    this.selectedCash = 0;
+    if (this.currentValue > this.maxValue) {
+      this.maxValue = this.currentValue;
+    }
+  }
+
+  public decrement() {
+    this.currentValue -= this.selectedCash;
+    this.selectedCash = 0;
+    if (this.currentValue < 0) {
+      this.currentValue = 0;
+    }
+  }
+
+  public reset() {
+    this.currentValue = 0;
+  }
 
 }
