@@ -1,11 +1,24 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Meu app
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  
+<ion-content class="ton-padding">
+  <h1>Seja bem vindo, {{ name }}</h1>
+  <ion-text [color]="messageCount > 0 ? 'danger' : 'success'">
+    <h2>Você tem {{messageCount}} mensagens não lidas</h2>
+  </ion-text>
+  <h3>{{messageCount > 0 ? "Leia suas mensagens" : "Tudo maravilhoso"}} </h3>
+
+  <ion-badge>{{ user.followers }}</ion-badge>
+
+  <ion-progress-bar [value]="user.stars/5"></ion-progress-bar>
+
+  <ion-button (click)="follow()">Seguir</ion-button>
+  <ion-button (click)="user.followers = 0">Perder todos os seguidores</ion-button>
+
+  <pre> {{user | json}} </pre>
 </ion-content>

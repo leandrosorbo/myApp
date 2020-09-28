@@ -7,6 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public name = "Leandro";
+
+  public messageCount = 5;
+
+  public user = {
+    name: "Leandro",
+    followers: 542,
+    stars: 4.2
+  }
+
+  public follow(){
+    this.user.followers++;
+  }
+
   constructor() {}
 
 }
