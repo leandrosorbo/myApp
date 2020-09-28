@@ -1,120 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Meu primeiro app
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
-  <h1>
-    <strong>
-    Hi Mike, <br>
-    Where do you want to go?
-    </strong>
-  </h1>
-
-  <ion-item>
-    <ion-icon name="location" slot="start"></ion-icon>
-       <ion-input placeholder="Input destination" ></ion-input>
-       <ion-icon name="arrow-forward" slot="end"></ion-icon>
-  </ion-item>
-  
-  <ion-row class="ion-align-items-center ion-margin-top">
-    <ion-col>
-      <ion-row class="ion-align-items-center">
-        <h2 class="ion-no-margin">
-          <strong>
-            Daily Scenary
-          </strong>
-        </h2>
-        <ion-text color="primary" class="ion-margin-start ion-margin-top">
-          <small>Update</small>
-        </ion-text>
-      </ion-row>
-    </ion-col>
-
-    <ion-col size="auto">
-      <ion-text color="medium">
-       More
-      </ion-text>
-    </ion-col>
-  </ion-row>
 
   <ion-card>
-    <img src=" https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-     class="daily-scenary-image">
-   
-   <ion-row class="ion-align-items-center"> 
-    <ion-col> 
+    <img src="http://images.pexels.com/photos/1386649/pexels-photo-1386649.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+      alt="">
     <ion-card-header>
-      <ion-card-subtitle>09/09/2020</ion-card-subtitle>
-      <ion-card-title>Santa Barbara, US</ion-card-title>
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="auto" size-md="12">
+            <ion-avatar class="ion-margin-end">
+              <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Imagem do usuário @maria">
+            </ion-avatar>
+          </ion-col>
+          <ion-col>
+            <ion-card-title>Maria</ion-card-title>
+            <ion-card-subtitle>Motorista há 4 anos</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-header>
-       </ion-col>
-       <ion-col size="auto">
-         <ion-row>
-           <ion-avatar class="daily-scenary-avatar"><img src="https://randomuser.me/api/portraits/women/75.jpg" alt="">
-          </ion-avatar>
-           <ion-avatar class="daily-scenary-avatar"><img src="https://randomuser.me/api/portraits/women/20.jpg" alt="">
-          </ion-avatar>
-         </ion-row>
-       </ion-col>
-    </ion-row>
+
+    <ion-card-content>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores quidem, ducimus reiciendis non adipisci natus
+      ipsa esse optio odio tempore obcaecati similique veniam exercitationem minima alias, nulla ullam eum fuga!
+    </ion-card-content>
   </ion-card>
 
-  <ion-row class="ion-align-items-center ion-margin-top">
-    <ion-col>
-      <ion-row class="ion-align-items-center">
-        <h2 class="ion-no-margin">
-          <strong>
-            City
-          </strong>
-        </h2>
-        <ion-badge color="primary" class="ion-margin-start">Hot</ion-badge>
-      </ion-row>
-    </ion-col>
 
-    <ion-col size="auto">
-      <ion-text color="medium">
-       More
-      </ion-text>
-    </ion-col>
-  </ion-row>
+  <h1>
+    <ion-icon name="globe"></ion-icon> Olá mundo!
 
- <ion-row>
-   <ion-col>
-     <ion-card><img class="city-image" src="https://images.pexels.com/photos/1836580/pexels-photo-1836580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-    <h3 class="city-label">Turkey</h3>
-    </ion-card>
-   </ion-col>
-   <ion-col>
-     <ion-card><img class="city-image"src="https://images.pexels.com/photos/879478/pexels-photo-879478.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-      <h3 class="city-label">Germany</h3>
-    </ion-card>
-   </ion-col>
-   <ion-col>
-     <ion-card><img class="city-image"src="https://images.pexels.com/photos/1549326/pexels-photo-1549326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-      <h3 class="city-label">Turkey</h3>
-    </ion-card>
-   </ion-col>
- </ion-row>
-
- 
-      <h2>
-        <strong>
-          Master
-        </strong>
-      </h2>
-      
-<ion-row class="ion-align-items-center">
-  <ion-col size="auto">
-  <ion-avatar class="master-avatar"><img src="https://randomuser.me/api/portraits/women/78.jpg" alt=""></ion-avatar>
-</ion-col>
-<ion-col size="auto">
-  <ion-avatar class="master-avatar"><img src="https://randomuser.me/api/portraits/women/55.jpg" alt=""></ion-avatar>
-</ion-col>
-<ion-col size="auto">
-  <ion-avatar class="master-avatar"><img src="https://randomuser.me/api/portraits/women/14.jpg" alt=""></ion-avatar>
-</ion-col>
-<ion-col size="auto">
-  <ion-avatar class="master-avatar"><img src="https://randomuser.me/api/portraits/women/70.jpg" alt=""></ion-avatar>
-</ion-col>
-<ion-col>
-  <ion-text color="primary">
-    Join them
+    <ion-badge color="danger">
+      <ion-icon name="globe"></ion-icon> Novo!
+    </ion-badge>
+  </h1>
+  <h2>
+    <ion-icon name="planet"></ion-icon> Adeus Terra
+  </h2>
+  <ion-text color="medium">
+    <p>Lorem ipsum <em>dolor</em>, sit amet consectetur adipisicing elit. Exercitationem doloremque harum
+      sequi a iste, tenetur
+      minus <strong>possimus</strong> dolorum dolor facilis aliquid odio veniam quas consectetur repudiandae suscipit
+      voluptatibus <ion-icon name="planet"></ion-icon>
+      molestiae esse.</p>
   </ion-text>
-</ion-col>
-</ion-row>
+
+  <ion-item>
+    <ion-label position="floating">Default Label</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+</ion-content>
