@@ -1,46 +1,79 @@
-<ion-app>
-  <ion-split-pane when="sm" content-id="main-content">
-    <ion-menu content-id="main-content">
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Frota
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-      <ion-content>
-        <ion-list>
-          <ion-list-header>
-            Navigate
-          </ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button>
-              <ion-icon slot="start" name='home'></ion-icon>
-              <ion-label>
-                Home
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>GRUPO A - CLICK CAR</ion-label>           
+    </ion-item>
+    <img src="data:image/jpeg;base64,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">
+    <ion-card-content align="center">
+     Mobi Like ou similar
+    </ion-card-content>
 
-    <div class="ion-page" id="main-content">
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-toggle>
-              <ion-button>
-                <ion-icon slot="icon-only" name="menu"></ion-icon>
-              </ion-button>
-            </ion-menu-toggle>
-          </ion-buttons>
-          <ion-title>Header</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <h1>Main Content</h1>
-      </ion-content>
-    </div>
+      
+      <ion-card-content>
+        <ion-icon name="checkmark-outline"></ion-icon>
+        <ion-label> KM Livre</ion-label>
+        <ion-icon name="checkmark-outline"></ion-icon>
+        <ion-label> KM Livre</ion-label>
+        <br>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-button color="success">Nova Reserva</ion-button>  
+        </ion-fab>     
+      </ion-card-content> 
+    
+  </ion-card>
 
-  </ion-split-pane>
-</ion-app>
+  <ion-card>
+    <ion-item>
+      <ion-label>SÃO PAULO - SHOPPING MOOCA</ion-label>           
+    </ion-item>
+    <ion-card-content>
+      Rua Capitão Pacheco e Chaves 313
+      <br>
+      SÂO PAULO/SP
+      <br>
+      <ion-text color="dark">Horario de funcionamento</ion-text>
+      <br>
+      Segunda a Sexta - 10:00 as 21:00
+      <br>
+      Sábados - 10:00 as 14:00
+      <br>
+      Domingos e Feriados - Fechado
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-button color="success">Nova Reserva</ion-button>  
+      </ion-fab>      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-label>SÃO PAULO - SHOPPING PÁTIO HIGIENÓPOLIS</ion-label>           
+    </ion-item>
+    <ion-card-content>
+      Avenida Higienópolis 618
+      <br>
+      SÂO PAULO/SP
+      <br>
+      <ion-text color="dark">Horario de funcionamento</ion-text>
+      <br>
+      Segunda a Sexta - 10:00 as 21:00
+      <br>
+      Sábados - 10:00 as 14:00
+      <br>
+      Domingos e Feriados - Fechado
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-button color="success">Nova Reserva</ion-button>  
+      </ion-fab>      
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>
+
+  
