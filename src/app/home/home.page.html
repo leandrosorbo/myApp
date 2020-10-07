@@ -1,12 +1,47 @@
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      Qual jogo você é?
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card *ngIf="!isDone; else isDoneCard">
+    <ion-card-header>
+      <ion-card-title>{{questions[currentQuestion].text}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-radio-group name="auto" [(ngModel)]="questions[currentQuestion].selectedOption">
+          <ion-item *ngFor="let option of questions[currentQuestion].options; let i = index">
+            <ion-label>{{option}}</ion-label>
+            <ion-radio slot="start" [value]="i"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <ion-button (click)="next()" expand="block" [disabled]="questions[currentQuestion].selectedOption == null">
+        Próxima pergunta
+        <ion-icon slot="end" name="chevron-forward"></ion-icon>        
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #isDoneCard>    
+    <ion-card color="primary">
+      <img [src]="possibleResults[mostVoted].image" [alt]="possibleResults[mostVoted].name">
+      <ion-card-content>
+        <h2>Finalizado!</h2>
+        <p>Você deveria jogar {{possibleResults[mostVoted].name}}</p>
+        <ion-button (click)="confirmReset()" expand="block" color="light" class="ion-margin-top">
+          <ion-icon slot="start" name="refresh"></ion-icon>
+          Jogar de novo
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+   
+  </ng-template>
  
 </ion-content>
 
