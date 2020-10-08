@@ -10,3 +10,14 @@ export class HomePage {
   constructor() {}
 
 }
+
+/*
+home -> home.page
+about -> about.page
+tabs -> tabs.page
+  |-> tabs/people
+  |-> tabs/calendar
+  |-> tabs/config
+
+*/
+
