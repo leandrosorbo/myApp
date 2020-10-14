@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Criar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-food-form [food]="newFood" (formSubmitted)="handleFormSubmitted()"></app-food-form>
+</ion-content>

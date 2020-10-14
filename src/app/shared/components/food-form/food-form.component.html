@@ -1,0 +1,13 @@
+<ion-list>
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="food.title" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Preço</ion-label>
+    <ion-input type="number" [(ngModel)]="food.price" ></ion-input>
+  </ion-item>
+  <ion-button (click)="formSubmitted.emit()" expand="block">
+    Salvar
+  </ion-button>
+</ion-list>
