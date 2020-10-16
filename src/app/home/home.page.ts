@@ -1,27 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
-  constructor() { }
-
-  public tasks = [
-    { name: 'Learn Ionic', completed: false },
-    { name: 'Buy Milk', completed: true },
-  ];
+  public tasks;
 
   public newTask = '';
 
+  constructor(private todoService: TodoService) { }
+
+  ngOnInit() {
+          this.tasks = this.todoService.allTasks();  
+  }
+
   public addToList() {
-    this.tasks.push({
-      name: this.newTask,
-      completed: false
-    });
+    this.todoService.addTask(this.newTask);
     this.newTask = '';
+  }
+
+  public triggerUpdateStorage() {
+    this.todoService.updateStorage();
   }
 
 }

@@ -21,12 +21,10 @@
   </ion-toolbar>
 
   <ion-list>
-    <ion-item *ngFor="let task of tasks">
+    <ion-item *ngFor="let task of tasks" (click)="triggerUpdateStorage()">
       <ion-checkbox slot="start" [(ngModel)]="task.completed"></ion-checkbox>
       <ion-label>{{task.name}}</ion-label>
     </ion-item>
   </ion-list>
 
-  <pre>{{tasks | json}}</pre>
-  <pre>{{newTask | json}}</pre>
 </ion-content>
