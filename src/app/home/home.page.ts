@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfirmationService } from '../services/confirmation.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private confirmationService: ConfirmationService) {
+  }
+ 
+  showConfirmation() {
+    this.confirmationService.show(() => console.log("confirmado! vai fundo!"));
+  }
 
 }
