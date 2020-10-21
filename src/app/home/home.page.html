@@ -4,7 +4,18 @@
       <ion-header>
         <ion-toolbar color="success">
           <ion-title>Menu</ion-title>
+          
         </ion-toolbar>
+        <ion-button slot="start " color="primary">
+          <ion-back-button>
+          </ion-back-button>
+          
+        </ion-button>
+        <ion-button slot="start " color="primary">
+          <ion-back-button>
+          </ion-back-button>
+          
+        </ion-button>
       </ion-header>
 
       <ion-content>
@@ -13,31 +24,31 @@
             Navigate
           </ion-list-header>
           <ion-menu-toggle auto-hide="false">
-            <ion-item button>
+            <ion-item button routerLink="/home">
               <ion-icon slot="start" name='home'></ion-icon>
               <ion-label>
                 Home
               </ion-label>
             </ion-item>
-            <ion-item button>
+            <ion-item button routerLink="/reservation">              
               <ion-icon slot="start" name="receipt"></ion-icon>
-              <ion-label>
+              <ion-label>                
                 Reservas
               </ion-label>
             </ion-item>
-            <ion-item button>
+            <ion-item button routerLink="/store">  
               <ion-icon slot="start" name="business"></ion-icon>
               <ion-label>
                 Lojas
               </ion-label>
             </ion-item>
-            <ion-item button>
+            <ion-item button routerLink="/fleet">
               <ion-icon slot="start" name="car"></ion-icon>
               <ion-label>
                 Frota
               </ion-label>
             </ion-item>
-            <ion-item button>
+            <ion-item button routerLink="/profile">  
               <ion-icon slot="start" name="person"></ion-icon>
               <ion-label>
                 Perfil
@@ -61,34 +72,42 @@
           
           <ion-title>CLICK CAR</ion-title>
         </ion-toolbar>
-      </ion-header>
+        </ion-header>
       <ion-content class="ion-padding">
         <img src="assets/img/logo.jpeg">
-        <h6>ONDE GOSTARIA DE RETIRAR?</h6>
+        <h6><strong>ONDE GOSTARIA DE RETIRAR?</strong></h6>
         <ion-item>
           <ion-icon name="location" slot="start"></ion-icon>
-             <ion-input> Selecione o local de retirada</ion-input>             
+            <ion-buttons><ion-button (click)="selectLocation()"> Selecione o local de retirada </ion-button> </ion-buttons>            
         </ion-item>
         <br>
         <ion-item>
           <ion-icon name="calendar-outline" slot="start"></ion-icon>
-             <ion-input> Selecione a data de retirada</ion-input>             
+             <ion-datetime display-format="D/MM/YYYY"  cancel-text="Cancelar"
+              done-text="Confirmar" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+              [min]= "minDate" [max]= "maxDate" [(ngModel)] = "selectedDateString"></ion-datetime>     
+                     
         </ion-item>
-        <h6>ONDE GOSTARIA DE DEVOLVER?</h6>
+
+
+        <h6><strong>ONDE GOSTARIA DE DEVOLVER?</strong></h6>
         <ion-item>
           <ion-icon name="location" slot="start"></ion-icon>
-             <ion-input> Selecione o local de devolução</ion-input>             
+            <ion-buttons><ion-button (click)="selectLocation()"> Selecione o local de devolução </ion-button> </ion-buttons>            
         </ion-item>
         <br>
         <ion-item>
           <ion-icon name="calendar-outline" slot="start"></ion-icon>
-             <ion-input> Selecione a data de devolução</ion-input>             
+             <ion-datetime display-format="D/MM/YYYY" cancel-text="Cancelar"
+              done-text="Confirmar" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+              [min]= "minDate" [max]= "maxDate" [(ngModel)] = "selectedDateString"></ion-datetime> 
         </ion-item>
         <br>
-        <ion-button expand="block" color="success">Buscar</ion-button>
+        <ion-button expand="block" color="success " >Buscar</ion-button>
 
         
       </ion-content>
+            
     </div>
 
   </ion-split-pane>
