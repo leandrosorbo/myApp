@@ -9,26 +9,42 @@ import { ActionSheetController, Platform } from '@ionic/angular';
 })
 export class HomePage {
 
-  selectedDateString: string = new Date().toISOString();
-  minDate: string = new Date().toISOString();
-  maxDate: string = new Date().toISOString();
+  selectedDateString1: string = new Date().toISOString();
+  minDateInput: string = new Date().toISOString();
+  maxDateInput: string = new Date().toISOString();
 
-    constructor(public actionSheetController: ActionSheetController, private platform: Platform) {
-this.platform.ready().then(() => {
-let date: Date = new Date();
-date.setDate(date.getDate() - 1);
-this.minDate = date.toISOString();
+  selectedDateString2: string = new Date().toISOString();
+  minDateOutput: string = new Date().toISOString();
+  maxDateOutput: string = new Date().toISOString();
 
-date = new Date();
-date.setDate(date.getDate() + 365);
-this.maxDate = date.toISOString();
+
+    constructor(public actionSheetController: ActionSheetController, private platform1: Platform, private platform2: Platform) {
+this.platform1.ready().then(() => {
+let date1: Date = new Date();
+date1.setDate(date1.getDate() - 0);
+this.minDateInput = date1.toISOString();
+
+date1 = new Date();
+date1.setDate(date1.getDate() + 365);
+this.maxDateInput = date1.toISOString();
+
+
 
 
 });
+this.platform2.ready().then(() => {
+  let date2: Date = new Date();
+  date2.setDate(date2.getDate() + 1);
+  this.minDateOutput = date2.toISOString();
+
+  date2 = new Date();
+  date2.setDate(date2.getDate() + 365);
+  this.maxDateOutput = date2.toISOString();
+}
+
+);
 
     }
-
-
     async selectLocation() {
       const actionSheet = await this.actionSheetController.create({
         header: 'Locais',

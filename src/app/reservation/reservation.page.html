@@ -58,39 +58,38 @@
               </ion-button>
             </ion-menu-toggle>
           </ion-buttons>
-          
-          <ion-title>CLICK CAR</ion-title>
-        </ion-toolbar>
-        </ion-header>
-      <ion-content class="ion-padding">
-        <img src="assets/img/logo.jpeg">
-        <h6><strong>ONDE GOSTARIA DE RETIRAR?</strong></h6>
-        <ion-item>
-          <ion-icon name="location" slot="start"></ion-icon>
-            <ion-buttons><ion-button (click)="selectLocation()"> Selecione o local de retirada </ion-button> </ion-buttons>            
-        </ion-item>
-        <br>
-        <ion-item>
-          <ion-icon name="calendar-outline" slot="start"></ion-icon>
-             <ion-datetime display-format="D de MMMM de YYYY"  cancel-text="Cancelar"
-              done-text="Confirmar" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
-              [min]= "minDateInput" [max]= "maxDateInput" [(ngModel)] = "selectedDateString1"></ion-datetime>           
-        </ion-item>
-        <h6><strong>ONDE GOSTARIA DE DEVOLVER?</strong></h6>
-        <ion-item>
-          <ion-icon name="location" slot="start"></ion-icon>
-            <ion-buttons><ion-button (click)="selectLocation()"> Selecione o local de devolução </ion-button> </ion-buttons>            
-        </ion-item>
-        <br>
-        <ion-item>
-          <ion-icon name="calendar-outline" slot="start"></ion-icon>
-             <ion-datetime display-format="D de MMMM de YYYY"  cancel-text="Cancelar"
-              done-text="Confirmar" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
-              [min]= "minDateOutput" [max]= "maxDateOutput" [(ngModel)] = "selectedDateString2"></ion-datetime>             
-        </ion-item>
-        <br>
-        <ion-button button routerLink="/fleet" expand="block" color="success">Reservar</ion-button>
-      </ion-content>
-    </div>
-  </ion-split-pane>
-</ion-app>
+    <ion-title>
+      Reservas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged()" [(ngModel)] = "selectedSegment">
+    <ion-segment-button value="current">
+      <ion-label>Atuais</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="previous">
+    <ion-label>Anteriores</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+  <ion-card *ngFor="let car of filteredCars">
+    <ion-item> 
+      <ion-checkbox slot="start" [(ngModel)] = "car.completed" (click)="presentAlert()"></ion-checkbox>
+      <ion-label>{{car.name}}</ion-label>
+      <ion-button fill="outline" slot="end">Detalhes</ion-button> 
+    </ion-item>
+    <img src="{{car.img}}">
+    <ion-card-content>
+      30/09/2012 - 18:00
+    </ion-card-content>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button  button routerLink="/home" color="success">
+      <ion-icon name="car-sport-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> 
+
+  </ion-content>
