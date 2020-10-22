@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public users;
+
+  constructor(private http: HttpClient) {
+    this.makeRequest();
+  }
+
+  public async makeRequest() {
+    this.users = await this.http.get('http://jsonplaceholder.typicode.com/users').toPromise()
+  }
 
 }
